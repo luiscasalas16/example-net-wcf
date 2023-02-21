@@ -18,8 +18,8 @@ namespace NetCoreClient
             Console.WriteLine("Press enter to start!");
             Console.ReadLine();
 
-            await CallBasicHttpBinding($"http://localhost:{HTTP_PORT}/EchoService/basicHttp");
-            await CallWsHttpBinding($"http://localhost:{HTTP_PORT}/EchoService/wsHttp");
+            await CallBasicHttpBinding($"http://localhost:{HTTP_PORT}/basicHttp");
+            await CallWsHttpBinding($"http://localhost:{HTTP_PORT}/wsHttp");
             
             //await CallBasicHttpBinding($"https://localhost:{HTTPS_PORT}");
             //await CallWsHttpBinding($"https://localhost:{HTTPS_PORT}");

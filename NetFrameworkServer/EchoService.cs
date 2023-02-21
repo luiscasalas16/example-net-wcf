@@ -1,6 +1,6 @@
 ﻿using System.ServiceModel;
 
-namespace DesktopServer
+namespace NetFrameworkServer
 {
     public class EchoService : Contract.IEchoService
     {

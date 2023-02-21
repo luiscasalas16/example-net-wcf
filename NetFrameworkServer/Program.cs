@@ -1,28 +1,26 @@
 ﻿using System;
 using System.ServiceModel;
 
-namespace DesktopServer
+namespace NetFrameworkServer
 {
     class Program
     {
+        public const int HTTP_PORT = 8088;
+        public const int HTTPS_PORT = 8443;
+        public const int NETTCP_PORT = 8089;
+
         static void Main()
         {
-            var httpUrl = "http://localhost:8088";
-            var httpsUrl = "https://localhost:8443";
-            var netTcpUrl = "net.tcp://localhost:8089";
-
-            Uri[] baseUriList = new Uri[] { new Uri(httpUrl), new Uri(httpsUrl), new Uri(netTcpUrl) };
-
             Type contract = typeof(Contract.IEchoService);
-            var host = new ServiceHost(typeof(EchoService), baseUriList);
+            var host = new ServiceHost(typeof(EchoService));
 
-            host.AddServiceEndpoint(contract, new BasicHttpBinding(BasicHttpSecurityMode.None), "/basichttp");
-            host.AddServiceEndpoint(contract, new WSHttpBinding(SecurityMode.None), "/wsHttp");
+            host.AddServiceEndpoint(contract, new BasicHttpBinding(BasicHttpSecurityMode.None), $"http://localhost:{HTTP_PORT}/basichttp");
+            host.AddServiceEndpoint(contract, new WSHttpBinding(SecurityMode.None), $"http://localhost:{HTTP_PORT}/wsHttp");
 
             //host.AddServiceEndpoint(contract, new BasicHttpsBinding(BasicHttpsSecurityMode.Transport), "/basichttp");
             //host.AddServiceEndpoint(contract, new WSHttpBinding(SecurityMode.Transport), "/wsHttp");
 
-            host.AddServiceEndpoint(contract, new NetTcpBinding(), "/nettcp");
+            host.AddServiceEndpoint(contract, new NetTcpBinding(), $"net.tcp://localhost:{NETTCP_PORT}/nettcp");
 
             host.Open();
 
