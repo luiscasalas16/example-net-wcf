@@ -17,9 +17,11 @@ namespace DesktopServer
             var host = new ServiceHost(typeof(EchoService), baseUriList);
 
             host.AddServiceEndpoint(contract, new BasicHttpBinding(BasicHttpSecurityMode.None), "/basichttp");
-            //host.AddServiceEndpoint(contract, new BasicHttpsBinding(BasicHttpsSecurityMode.Transport), "/basichttp");
             host.AddServiceEndpoint(contract, new WSHttpBinding(SecurityMode.None), "/wsHttp");
+
+            //host.AddServiceEndpoint(contract, new BasicHttpsBinding(BasicHttpsSecurityMode.Transport), "/basichttp");
             //host.AddServiceEndpoint(contract, new WSHttpBinding(SecurityMode.Transport), "/wsHttp");
+
             host.AddServiceEndpoint(contract, new NetTcpBinding(), "/nettcp");
 
             host.Open();

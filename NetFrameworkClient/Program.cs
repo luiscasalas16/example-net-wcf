@@ -18,21 +18,23 @@ namespace NetFrameworkClient
             Console.WriteLine("Press enter to start!");
             Console.ReadLine();
 
-            await CallBasicHttpBinding($"http://localhost:{HTTP_PORT}");
+            await CallBasicHttpBinding($"http://localhost:{HTTP_PORT}/basicHttp");
+            await CallWsHttpBinding($"http://localhost:{HTTP_PORT}/wsHttp");
+
             //await CallBasicHttpBinding($"https://localhost:{HTTPS_PORT}");
-            await CallWsHttpBinding($"http://localhost:{HTTP_PORT}");
             //await CallWsHttpBinding($"https://localhost:{HTTPS_PORT}");
-            await CallNetTcpBinding($"net.tcp://localhost:{NETTCP_PORT}");
+            
+            await CallNetTcpBinding($"net.tcp://localhost:{NETTCP_PORT}/nettcp");
 
             Console.WriteLine("Press enter to close!");
             Console.ReadLine();
         }
 
-        private static async Task CallBasicHttpBinding(string hostAddr)
+        private static async Task CallBasicHttpBinding(string url)
         {
             IClientChannel channel = null;
-            var binding = new BasicHttpBinding(IsHttps(hostAddr) ? BasicHttpSecurityMode.Transport : BasicHttpSecurityMode.None);
-            var factory = new ChannelFactory<IEchoService>(binding, new EndpointAddress($"{hostAddr}/basicHttp"));
+            var binding = new BasicHttpBinding(IsHttps(url) ? BasicHttpSecurityMode.Transport : BasicHttpSecurityMode.None);
+            var factory = new ChannelFactory<IEchoService>(binding, new EndpointAddress(url));
 
             await Task.Factory.FromAsync(factory.BeginOpen, factory.EndOpen, null);
             try
@@ -50,13 +52,13 @@ namespace NetFrameworkClient
             }
         }
 
-        private static async Task CallWsHttpBinding(string hostAddr)
+        private static async Task CallWsHttpBinding(string url)
         {
             IClientChannel channel = null;
 
-            var binding = new WSHttpBinding(IsHttps(hostAddr) ? SecurityMode.Transport : SecurityMode.None);
+            var binding = new WSHttpBinding(IsHttps(url) ? SecurityMode.Transport : SecurityMode.None);
 
-            var factory = new ChannelFactory<IEchoService>(binding, new EndpointAddress($"{hostAddr}/wsHttp"));
+            var factory = new ChannelFactory<IEchoService>(binding, new EndpointAddress(url));
             await Task.Factory.FromAsync(factory.BeginOpen, factory.EndOpen, null);
             try
             {
@@ -73,13 +75,13 @@ namespace NetFrameworkClient
             }
         }
 
-        private static async Task CallNetTcpBinding(string hostAddr)
+        private static async Task CallNetTcpBinding(string url)
         {
             IClientChannel channel = null;
 
             var binding = new NetTcpBinding();
 
-            var factory = new ChannelFactory<IEchoService>(binding, new EndpointAddress($"{hostAddr}/nettcp"));
+            var factory = new ChannelFactory<IEchoService>(binding, new EndpointAddress(url));
             await Task.Factory.FromAsync(factory.BeginOpen, factory.EndOpen, null);
             try
             {
