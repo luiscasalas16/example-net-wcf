@@ -1,11 +1,10 @@
-﻿using Contract;
-using CoreWCF;
+﻿using CoreWCF;
 using CoreWCF.Configuration;
 using CoreWCF.Description;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace NetCoreServer
+namespace netcore_server
 {
     public class Startup
     {

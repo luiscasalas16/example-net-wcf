@@ -1,8 +1,8 @@
 ﻿using System.ServiceModel;
 
-namespace NetFrameworkServer
+namespace netfw_server
 {
-    public class EchoService : Contract.IEchoService
+    public class EchoService : IEchoService
     {
         public string Echo(string text)
         {
@@ -10,7 +10,7 @@ namespace NetFrameworkServer
             return text;
         }
 
-        public string ComplexEcho(Contract.EchoMessage text)
+        public string ComplexEcho(EchoMessage text)
         {
             System.Console.WriteLine($"Received {text.Text} from client!");
             return text.Text;
@@ -19,7 +19,7 @@ namespace NetFrameworkServer
         public string FailEcho(string text)
         {
             System.Console.WriteLine($"Received {text} and Fault generated on client!");
-            throw new FaultException<Contract.EchoFault>(new Contract.EchoFault() { Text = "CoreWCF Fault OK" });
+            throw new FaultException<EchoFault>(new EchoFault() { Text = "CoreWCF Fault OK" });
         }
     }
 }

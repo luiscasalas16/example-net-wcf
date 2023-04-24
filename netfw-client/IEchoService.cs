@@ -2,7 +2,7 @@
 using System.ServiceModel;
 using System.Threading.Tasks;
 
-namespace Contract
+namespace netfw_client
 {
     [DataContract]
     public class EchoFault

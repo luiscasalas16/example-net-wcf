@@ -1,9 +1,8 @@
 ﻿using System;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Contract;
 
-namespace NetFrameworkClient
+namespace netfw_client
 {
     public class Program
     {

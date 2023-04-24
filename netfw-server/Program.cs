@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
 
-namespace NetFrameworkServer
+namespace netfw_server
 {
     class Program
     {
@@ -11,7 +11,7 @@ namespace NetFrameworkServer
 
         static void Main()
         {
-            Type contract = typeof(Contract.IEchoService);
+            Type contract = typeof(IEchoService);
             var host = new ServiceHost(typeof(EchoService));
 
             host.AddServiceEndpoint(contract, new BasicHttpBinding(BasicHttpSecurityMode.None), $"http://localhost:{HTTP_PORT}/basichttp");

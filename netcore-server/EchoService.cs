@@ -1,8 +1,6 @@
-using System.Threading.Tasks;
-using Contract;
 using CoreWCF;
 
-namespace NetCoreServer
+namespace netcore_server
 {
     public class EchoService : IEchoService
     {

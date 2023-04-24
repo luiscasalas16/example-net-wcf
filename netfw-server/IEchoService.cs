@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using System.ServiceModel;
 
-namespace Contract
+namespace netfw_server
 {
     [DataContract]
     public class EchoFault

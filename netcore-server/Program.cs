@@ -1,11 +1,10 @@
-﻿using System.Diagnostics;
-using System.Net;
-using CoreWCF.Configuration;
+﻿using CoreWCF.Configuration;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using System.Diagnostics;
 
-namespace NetCoreServer
+namespace netcore_server
 {
     class Program
     {

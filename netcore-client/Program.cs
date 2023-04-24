@@ -1,9 +1,8 @@
 ﻿using System;
 using System.ServiceModel;
 using System.Threading.Tasks;
-using Contract;
 
-namespace NetCoreClient
+namespace netcore_client
 {
     public class Program
     {
