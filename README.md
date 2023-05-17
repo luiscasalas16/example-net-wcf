@@ -1,4 +1,4 @@
-# net-wcf
+# example-net-wcf
 
 Proyecto de ejemplo de WCF en .Net Core y .Net Framework.
 
