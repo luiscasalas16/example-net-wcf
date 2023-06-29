@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using System.Diagnostics;
 
-namespace netcore_server
+namespace net_server
 {
     class Program
     {

@@ -4,7 +4,7 @@ using CoreWCF.Description;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace netcore_server
+namespace net_server
 {
     public class Startup
     {

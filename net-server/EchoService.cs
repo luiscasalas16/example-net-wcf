@@ -1,6 +1,6 @@
 using CoreWCF;
 
-namespace netcore_server
+namespace net_server
 {
     public class EchoService : IEchoService
     {

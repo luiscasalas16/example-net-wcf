@@ -1,7 +1,7 @@
 ﻿using CoreWCF;
 using System.Runtime.Serialization;
 
-namespace netcore_server
+namespace net_server
 {
     [DataContract]
     public class EchoFault

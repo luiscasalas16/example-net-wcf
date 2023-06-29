@@ -2,7 +2,7 @@
 using System.ServiceModel;
 using System.Threading.Tasks;
 
-namespace netcore_client
+namespace net_client
 {
     [DataContract]
     public class EchoFault
